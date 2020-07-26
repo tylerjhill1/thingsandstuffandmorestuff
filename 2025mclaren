@@ -1,0 +1,17 @@
+import pandas as pd  
+import numpy as np
+import matplotlib.pyplot as plt
+import pypfopt
+from pypfopt import risk_models, expected_returns, plotting
+pypfopt.__version__
+
+
+
+df = pd.read_csv('/Users/tyler/stock_prices.csv', parse_dates=True, index_col="date")
+past_df, future_df = df.iloc[:-250],df.iloc[-250:]
+future_cov = risk_models.sample_cov(future_df)
+
+sample.cov = risk_models.sample_cov(past_df)
+plotting.plot_covariance(sample_cov)
+plotting.plot_covariance(future_cov)
+plt.show()  
